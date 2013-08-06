@@ -8,7 +8,9 @@ module FacebookShareWidget
       else
         auth = FbGraph::Auth.new(FacebookShareWidget.client_id, FacebookShareWidget.client_secret)
         auth.from_cookie(cookies)
-        auth.access_token
+        token = auth.access_token.to_s
+        session[FacebookShareWidget.access_token_session_key] = token if FacebookShareWidget.access_token_session_key
+        token
       end
     end
   
