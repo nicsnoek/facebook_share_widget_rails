@@ -89,6 +89,8 @@ module FacebookShareWidget
     
     def message_for post_id
       FbGraph::Post.new(post_id).fetch(:access_token => self.facebook_access_token).message
+    rescue
+      "Not Available"
     end
   end
 end
