@@ -57,7 +57,6 @@ $ ->
       if json_message.personal_data_type
         params['personal_data_type'] = json_message.personal_data_type
       @collection.fetch({ data: $.param(params) }).complete ->
-        FB.init({appId: json_message.appId, cookie: true })
         self.render()
 
     render: () =>
